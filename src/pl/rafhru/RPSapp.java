@@ -1,3 +1,5 @@
+package pl.rafhru;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,11 +11,12 @@ public class RPSapp {
         String name = scanner.nextLine();
         System.out.println("Hello! " + name + ".\n");
 
-        int playerPoints = 0;
-        int computerPoints = 0;
         String s ;
 
+
         do {
+            int playerPoints = 0;
+            int computerPoints = 0;
 
             do {
                 // Player choice one of:
@@ -50,12 +53,12 @@ public class RPSapp {
 
             if (playerPoints == 3) {
                 System.out.println("\n" + name + " You won!");
-                System.out.println("Do you want to play again? Y/N");
             } else {
                 System.out.println(name + " you loose:(");
-                System.out.println("Do you want to play again? Y/N");
             }
 
+            System.out.println("Do you want to play again? Y/N");
+            scanner.nextLine();
             s = scanner.nextLine();
 
         } while (s.contentEquals("y"));
