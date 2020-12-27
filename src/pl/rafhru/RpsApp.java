@@ -45,13 +45,11 @@ public class RpsApp {
 
                 System.out.print("Make your choice: 1- ROCK, 2 - PAPER, 3 - SCISSORS \n");
 
-                int chooseNumb;
+                int chooseNumb = scanner.nextInt();
 
-                chooseNumb = scanner.nextInt();
                 if (chooseNumb < 1 || chooseNumb > 3) {
                     System.out.println("please choose again");
-                }else {
-
+                } else {
 
                     System.out.print(playerName + " ");
                     makeChoice(chooseNumb);
@@ -63,7 +61,6 @@ public class RpsApp {
                     System.out.print(computer);
                     makeChoice(comNumb);
 
-
                     if (chooseNumb == 1 && comNumb == 3 || chooseNumb == 2 && comNumb == 1 || chooseNumb == 3 && comNumb == 2) {
                         System.out.println("\n" + playerName + " point for you!");
                         playerPoints++;
@@ -74,7 +71,6 @@ public class RpsApp {
                     }
                     if (chooseNumb == 1 && comNumb == 1 || chooseNumb == 2 && comNumb == 2 || chooseNumb == 3 && comNumb == 3) {
                         System.out.println("\nIt's a tie!");
-
 
                     }
                     System.out.println("\nResult:");
@@ -91,14 +87,11 @@ public class RpsApp {
                 System.out.println(playerName + " you loose:(");
             }
 
-
             System.out.println("Do you want to play again? Y/N");
             scanner.nextLine();
             rematch = scanner.nextLine();
 
-
         } while ("y".contentEquals(rematch));
-
 
         System.out.println("Thank you for your game!");
         scanner.close();
@@ -122,7 +115,6 @@ public class RpsApp {
         }
     }
 
-    // change this method for : game, views results
     public static void gameModeChoice(int gameMode) {
         if (gameMode == 1) {
             System.out.println("Start game!\n");
@@ -133,8 +125,6 @@ public class RpsApp {
         }
 
     }
-
-
 
 /*
 
