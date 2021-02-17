@@ -20,9 +20,7 @@ public class RpsApp {
         }
     }
 
-    public RpsApp() {
-    }
-
+   
     public static void main(String[] args) throws IOException {
         System.out.println("Hello!");
         System.out.println("1- game , 2- views results");
