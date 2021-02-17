@@ -1,14 +1,16 @@
 package pl.rafhru;
 
-
 import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
 
 public class RpsApp {
 
-
     static FileWriter fileResults;
+    static String playerName;
+    static String computer = "Computer ";
+    static int playerPoints = 0;
+    static int computerPoints = 0;
 
     static {
         try {
@@ -27,29 +29,20 @@ public class RpsApp {
 
         Scanner scanner = new Scanner(System.in);
 
-
         int gameMode = scanner.nextInt();
         gameModeChoice(gameMode);
 
         scanner.close();
-
     }
-
-    static String playerName;
-    static String computer = "Computer ";
-    static int playerPoints = 0;
-    static int computerPoints = 0;
 
     public static void onePlayer() {
 
         String rematch;
         Scanner scanner = new Scanner(System.in);
 
-
         do {
             System.out.println("Enter your name: ");
             playerName = scanner.nextLine();
-
 
             do {
 
@@ -134,7 +127,6 @@ public class RpsApp {
             System.out.println("display results");
             resultsDisplay(fileResults);
         }
-
     }
 
     public static void saveResult(FileWriter file) {
@@ -160,8 +152,6 @@ public class RpsApp {
         }
         //Close the input stream
         fileStream.close();
-
-
     }
 }
 
