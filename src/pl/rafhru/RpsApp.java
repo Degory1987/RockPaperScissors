@@ -103,17 +103,11 @@ public class RpsApp {
     public static void makeChoice(int n) {
 
         switch (n) {
-            case 1:
-                System.out.println("ROCK!");
-                break;
-            case 2:
-                System.out.println("PAPER!");
-                break;
-            case 3:
-                System.out.println("SCISSORS!");
-                break;
-
-            default:
+            case 1 -> System.out.println("ROCK!");
+            case 2 -> System.out.println("PAPER!");
+            case 3 -> System.out.println("SCISSORS!");
+            default -> {
+            }
         }
     }
 
@@ -131,10 +125,11 @@ public class RpsApp {
         int gameNumber = 1;
         PrintWriter writer = new PrintWriter(file);
         writer.println(gameNumber + ". " + playerName + " " + playerPoints + " : " + computer + " " + computerPoints);
-        gameNumber++;
+        gameNumber += 1;
         writer.close();
     }
 
+    // move it to new class - FileManager
     public static void resultsDisplay(FileWriter fileResults) throws IOException {
         RpsApp.fileResults = fileResults;
 
