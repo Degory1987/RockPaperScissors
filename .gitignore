@@ -1,0 +1,10 @@
+
+*.class
+*.log
+.idea/
+.classpath
+.project
+.settings
+.out
+Results.txt
+RockPaperScissors.iml

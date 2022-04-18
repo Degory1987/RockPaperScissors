@@ -1,37 +1,15 @@
-package pl.rafhru;
+package pl.rafhru.rockpaperscissor;
 
-import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
 
-public class RpsApp {
+import static pl.rafhru.rockpaperscissor.ComputerPlayer.*;
+import static pl.rafhru.rockpaperscissor.GameHistoryManager.fileResults;
 
-    static FileWriter fileResults;
-    static String playerName;
-    static String computer = "Computer ";
-    static int playerPoints = 0;
-    static int computerPoints = 0;
+public class Player {
 
-    static {
-        try {
-            fileResults = new FileWriter("Results.txt", true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-   
-    public static void main(String[] args) throws IOException {
-        System.out.println("Hello!");
-        System.out.println("1- game , 2- views results");
-
-        Scanner scanner = new Scanner(System.in);
-
-        int gameMode = scanner.nextInt();
-        gameModeChoice(gameMode);
-
-        scanner.close();
-    }
+    private static String playerName;
+    private static int playerPoints = 0;
 
     public static void onePlayer() {
 
@@ -68,7 +46,7 @@ public class RpsApp {
                     }
                     if (chooseNumb == 1 && comNumb == 2 || chooseNumb == 2 && comNumb == 3 || chooseNumb == 3 && comNumb == 1) {
                         System.out.println("\nPoint for " + computer);
-                        computerPoints++;
+                        setComputerPoints(computerPoints++);
                     }
                     if (chooseNumb == 1 && comNumb == 1 || chooseNumb == 2 && comNumb == 2 || chooseNumb == 3 && comNumb == 3) {
                         System.out.println("\nIt's a tie!");
@@ -94,7 +72,7 @@ public class RpsApp {
 
         } while ("y".contentEquals(rematch));
 
-        saveResult(fileResults);
+        GameHistoryManager.saveResult(fileResults);
         System.out.println("Thank you for your game!");
         scanner.close();
 
@@ -103,55 +81,19 @@ public class RpsApp {
     public static void makeChoice(int n) {
 
         switch (n) {
-            case 1:
-                System.out.println("ROCK!");
-                break;
-            case 2:
-                System.out.println("PAPER!");
-                break;
-            case 3:
-                System.out.println("SCISSORS!");
-                break;
-
-            default:
+            case 1 -> System.out.println("ROCK!");
+            case 2 -> System.out.println("PAPER!");
+            case 3 -> System.out.println("SCISSORS!");
+            default -> {
+            }
         }
     }
 
-    public static void gameModeChoice(int gameMode) throws IOException {
-        if (gameMode == 1) {
-            System.out.println("Start game!\n");
-            onePlayer();
-        } else if (gameMode == 2) {
-            System.out.println("display results");
-            resultsDisplay(fileResults);
-        }
+    public static String getPlayerName() {
+        return playerName;
     }
 
-    public static void saveResult(FileWriter file) {
-        int gameNumber = 1;
-        PrintWriter writer = new PrintWriter(file);
-        writer.println(gameNumber + ". " + playerName + " " + playerPoints + " : " + computer + " " + computerPoints);
-        gameNumber++;
-        writer.close();
-    }
-
-    public static void resultsDisplay(FileWriter fileResults) throws IOException {
-        RpsApp.fileResults = fileResults;
-
-        FileInputStream fileStream = new FileInputStream("Results.txt");
-        BufferedReader br = new BufferedReader(new InputStreamReader(fileStream));
-
-        String strLine;
-
-        //Read File Line By Line
-        while ((strLine = br.readLine()) != null) {
-            // Print the content on the console
-            System.out.println(strLine);
-        }
-        //Close the input stream
-        fileStream.close();
+    public static int getPlayerPoints() {
+        return playerPoints;
     }
 }
-
-
-
