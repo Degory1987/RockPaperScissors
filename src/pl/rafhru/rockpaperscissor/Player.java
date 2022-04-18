@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import static pl.rafhru.rockpaperscissor.ComputerPlayer.*;
+import static pl.rafhru.rockpaperscissor.GameHistoryManager.fileResults;
 
 public class Player {
 
@@ -71,7 +72,7 @@ public class Player {
 
         } while ("y".contentEquals(rematch));
 
-//        saveResult(fileResults);
+        GameHistoryManager.saveResult(fileResults);
         System.out.println("Thank you for your game!");
         scanner.close();
 
@@ -80,17 +81,11 @@ public class Player {
     public static void makeChoice(int n) {
 
         switch (n) {
-            case 1:
-                System.out.println("ROCK!");
-                break;
-            case 2:
-                System.out.println("PAPER!");
-                break;
-            case 3:
-                System.out.println("SCISSORS!");
-                break;
-
-            default:
+            case 1 -> System.out.println("ROCK!");
+            case 2 -> System.out.println("PAPER!");
+            case 3 -> System.out.println("SCISSORS!");
+            default -> {
+            }
         }
     }
 

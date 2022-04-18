@@ -1,26 +1,14 @@
 package pl.rafhru.rockpaperscissor;
 
 import java.io.*;
-import java.util.Random;
 import java.util.Scanner;
 
+import static pl.rafhru.rockpaperscissor.GameHistoryManager.fileResults;
 import static pl.rafhru.rockpaperscissor.GameHistoryManager.resultsDisplay;
 
 public class RpsApp {
 
-    static FileWriter fileResults;
 
-
-
-    static {
-        try {
-            fileResults = new FileWriter("Results.txt", true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-   
     public static void main(String[] args) throws IOException {
         System.out.println("Hello!");
         System.out.println("1- game , 2- views results");
@@ -43,8 +31,6 @@ public class RpsApp {
             resultsDisplay(fileResults);
         }
     }
-
-
 }
 
 
