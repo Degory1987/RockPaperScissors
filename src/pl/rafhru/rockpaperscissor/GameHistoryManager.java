@@ -16,7 +16,7 @@ public class GameHistoryManager {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
         writer.println(gameNumber + ". " + getPlayerName() + " " + getPlayerPoints() + " : " + computer + " " + computerPoints + "; date: " + simpleDateFormat.format(date));
-        gameNumber++;//TODO it's not work, don't increments games number.
+        gameNumber++;
         writer.close();
     }
 
